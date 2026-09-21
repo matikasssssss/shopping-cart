@@ -29,7 +29,8 @@ export function Filters() {
           type="range"
           id={priceId}
           min="0"
-          max="1000"
+          max="2499.99"
+          step="0.01"
           onChange={handleMinPriceChange}
           value={filters.minPrice}
         />

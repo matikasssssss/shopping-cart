@@ -1,11 +1,13 @@
 import { createContext, useReducer } from 'react'
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const CartContext = createContext()
 
 const initialState = JSON.parse(window.localStorage.getItem('cart')) || []
 const updateLocalStorage = (state) => {
   window.localStorage.setItem('cart', JSON.stringify(state))
 }
+
 const reducer = (state, action) => {
   const { type: actionType, payload: actionPayload } = action
 
@@ -39,6 +41,7 @@ const reducer = (state, action) => {
     }
 
     case 'CLEAR_CART': {
+      updateLocalStorage([])
       return []
     }
   }
